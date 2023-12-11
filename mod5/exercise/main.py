@@ -101,7 +101,7 @@ class StudentData(BaseModel):
 @app.post("/students", status_code=201)
 def create_student(student: StudentData):
     new_student = Student(**student.dict()).save()
-    return {"message": "Student successfully created", "id": f"${new_student.id}"}
+    return {"message": "Student successfully created", "id": f"{new_student.id}"}
 
 @app.get('/students/{student_id}')
 def get_students(student_id: str):
@@ -111,7 +111,7 @@ def get_students(student_id: str):
 @app.put("/students/{student_id}")
 def update_movie(student_id: str, student: StudentData):
     Student.objects.get(id=student_id).update(**student.dict())
-    return {"message": "Student succesfully updated"}
+    return {"message": "Student successfully updated"}
 
 @app.delete("/students/{student_id}")
 def delete_movie(student_id: str):
@@ -124,7 +124,7 @@ def delete_movie(student_id: str):
 @app.post("/courses", status_code=201)
 def create_course(course: CourseData):
     new_course = Course(**course.dict()).save()
-    return {"message": "Course successfully created", "id": f"${new_course.id}"}
+    return {"message": "Course successfully created", "id": f"{new_course.id}"}
 
 @app.get('/courses')
 def get_courses(tag: str = "", studentName: str = ""):
@@ -145,7 +145,7 @@ def get_courses(course_id: str):
 @app.put("/courses/{course_id}")
 def update_movie(course_id: str, course: CourseData):
     Course.objects.get(id=course_id).update(**course.dict())
-    return {"message": "Course succesfully updated"}
+    return {"message": "Course successfully updated"}
 
 @app.delete("/courses/{course_id}")
 def delete_movie(course_id: str):
